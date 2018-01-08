@@ -5,7 +5,7 @@
 **使用**
 
 
-    像正常的LayoutManager一样
+    像正常的LayoutManager一样(gradle 3.0+)
 
       属性设置
 
