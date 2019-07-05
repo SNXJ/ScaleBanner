@@ -1,6 +1,9 @@
 # ScaleBanner
 
+**截图**
 
+ <img src='./001.jpeg' width=300  height = 300>
+![截图](001.jpeg)
 
 **使用**
 
