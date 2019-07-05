@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ScaleBanner.iml" filepath="$PROJECT_DIR$/ScaleBanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ScaleBanner-master.iml" filepath="$PROJECT_DIR$/ScaleBanner-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/scalelibrary/scalelibrary.iml" filepath="$PROJECT_DIR$/scalelibrary/scalelibrary.iml" />
     </modules>
