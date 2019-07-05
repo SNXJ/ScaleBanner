@@ -7,9 +7,10 @@
 
 **使用**
 
-    compile 'com.github.SNXJ:ScaleBanner:0.0.X'（x最新的）
-    或者复制代码
-    像正常的LayoutManager一样使用  见demo
+    1.implementation 'com.github.SNXJ:ScaleBanner:0.0.2'（最新的）
+      或者复制代码
+    
+    2.像正常的LayoutManager一样使用  见demo
     
 **属性设置** (支持Builder)
 

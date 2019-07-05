@@ -3,11 +3,8 @@ package com.shing.scalelibrary;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
-import android.util.Log;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
-
-import static android.content.ContentValues.TAG;
 
 
 public class CenterSnapHelper extends RecyclerView.OnFlingListener {

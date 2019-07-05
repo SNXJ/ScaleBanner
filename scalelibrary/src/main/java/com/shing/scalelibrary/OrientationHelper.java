@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 
-@SuppressWarnings({"WeakerAccess","unused"})
+@SuppressWarnings({"WeakerAccess", "unused"})
 public abstract class OrientationHelper {
 
     private static final int INVALID_SIZE = Integer.MIN_VALUE;
