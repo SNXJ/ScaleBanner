@@ -3,14 +3,22 @@ package com.shing.scalelibrary;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
+import android.util.Log;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
+
+import static android.content.ContentValues.TAG;
 
 
 public class CenterSnapHelper extends RecyclerView.OnFlingListener {
 
     RecyclerView mRecyclerView;
     Scroller mGravityScroller;
+    int range;
+
+    public void setMaxRange(int range) {
+        this.range = range;
+    }
 
     // Handles the snap on scroll case.
     private final RecyclerView.OnScrollListener mScrollListener =
@@ -27,7 +35,7 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
 //                    SCROLL_STATE_SETTLING，再是手指松开但是RecyclerView还在滑动2
 //                    SCROLL_STATE_IDLE， 最后是RecyclerView滚动停止状态0
 
-//                    Log.d(TAG, "onScrollStateChanged: ======newState==" + newState + "======mScrolled=====" + mScrolled);
+                    Log.d(TAG, "onScrollStateChanged: ======newState==" + newState + "======mScrolled=====" + mScrolled);
                     final ViewPagerLayoutManager layoutManager =
                             (ViewPagerLayoutManager) recyclerView.getLayoutManager();
                     final ViewPagerLayoutManager.OnPageChangeListener onPageChangeListener =
@@ -39,20 +47,13 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
                     if (newState == RecyclerView.SCROLL_STATE_IDLE && mScrolled) {
                         mScrolled = false;
                         snapToCenterView(layoutManager, onPageChangeListener);
-
-                        //解决 onFling导致RecyclerView.SCROLL_STATE_SETTLING  使recycle itemClick 事件无响应
-                        recyclerView.stopScroll();
                     }
-//                    //解决 onFling导致RecyclerView.SCROLL_STATE_SETTLING  使recycle itemClick 事件无响应
-//                    if (newState == RecyclerView.SCROLL_STATE_SETTLING) {
-//                        recyclerView.stopScroll();
-//                    }
-//
                 }
 
                 @Override
                 public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                    if (dx != 0 || dy != 0) {
+//                    Log.d(TAG, "onScrolled: ======xxxx==" + dx + "======yyyyy=====" + dy);
+                    if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {//dx dy 会出现不为0的偏移
                         mScrolled = true;
                     }
                 }
@@ -62,7 +63,12 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
     public boolean onFling(int velocityX, int velocityY) {
 
 //        Log.d(TAG, "onFling: ======x==" + velocityX + "====y====" + velocityY);
-
+        if (velocityX > 0 && velocityX > range) {
+            velocityX = range;
+        }
+        if (velocityX < 0 && velocityX < -range) {
+            velocityX = -range;
+        }
 
         ViewPagerLayoutManager layoutManager = (ViewPagerLayoutManager) mRecyclerView.getLayoutManager();
         if (layoutManager == null) {

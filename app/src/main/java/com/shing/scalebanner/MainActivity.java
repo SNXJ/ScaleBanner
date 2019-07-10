@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         scaleLayoutManager.setInfinite(true);//无限轮播
 
         CenterSnapHelper centerSnapHelper = new CenterSnapHelper();//居中
+        centerSnapHelper.setMaxRange(400);
         centerSnapHelper.attachToRecyclerView(mRecyclerView);//是否居中  null不控制//需要在setLayoutManager（）之后设置
 
 //        AutoPlaySnapHelper autoPlaySnapHelper = new AutoPlaySnapHelper(AutoPlaySnapHelper.TIME_INTERVAL, AutoPlaySnapHelper.RIGHT);//间隔 和方向     自动轮播
