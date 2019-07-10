@@ -14,7 +14,7 @@ public class CenterSnapHelper extends RecyclerView.OnFlingListener {
 
     RecyclerView mRecyclerView;
     Scroller mGravityScroller;
-    int range;
+    int range = 20000;
 
     public void setMaxRange(int range) {
         this.range = range;
